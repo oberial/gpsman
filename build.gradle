@@ -1,0 +1,71 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.johnsmit'
+version = '0.0.1-SNAPSHOT'
+//sourceCompatibility = '1.8'
+//buildscript {
+//	ext {
+//		springBootVersion = '2.0.2.RELEASE'
+//	}
+//	repositories {
+//		maven {
+//			url 'http://nexus.gsafety.com/repository/maven-public'
+//		}
+//		maven {
+//			url 'http://172.22.3.5/repository/maven-public'
+//		}
+//	}
+//	dependencies {
+//		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+//		classpath ("net.ltgt.gradle:gradle-apt-plugin:0.9")
+//	}
+//}
+
+repositories {
+	maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+	maven { url 'http://nexus.gsafety.com/repository/maven-public' }
+}
+
+
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//gsafety common
+//	compile('com.gsafety.springboot.common:gsafety-springboot-common:2.0.6')
+	compile('com.gsafety.java.util:gsafety-java-util:2.0.0-SNAPSHOT')
+	compile('com.gsafety.java.redis.seq:java-redis-seq:1.0.0-SNAPSHOT')
+	compile('com.gs.glink.infrastructure:glink-infrastructure:2.0.18-SNAPSHOT')
+//	compile(
+////            "com.gs.glink.entities:citysafety-entity:2.2.44-SNAPSHOT",
+//			"apportion-server:com.gs.apportion.model:2.0.0-SNAPSHOT",
+////            "cad-sysmgr-service:com.gs.systemmanager.model:2.0.2-SNAPSHOT"
+//			"lw-sysmgr-service:com.gs.systemmanager.model:1.0.2-LW-SNAPSHOT"
+//	)
+
+	compile("io.springfox:springfox-swagger2:2.5.0")
+	compile("io.springfox:springfox-swagger-ui:2.5.0")
+
+	compile("org.postgresql:postgresql:42.2.2")
+	compile('com.microsoft.sqlserver:mssql-jdbc:7.2.2.jre8')
+
+	compile("net.logstash.logback:logstash-logback-encoder:4.9")
+	// end::actuator[]
+	compile "com.google.code.gson:gson:2.8.5"
+	compile "com.alibaba:fastjson:1.2.47"
+}
+
+//allprojects {
+//	apply from: "E:\\gpsmanager\\gpsmanager\\scripts\\dependencies.gradle"
+//	//安装钩子
+////	build.dependsOn installGitHooks;
+//}
+
+
+//test {
+//	useJUnitPlatform()
+//}
